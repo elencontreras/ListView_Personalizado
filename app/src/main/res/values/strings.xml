@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Personas</string>
+    <string name="titulo">REGISTRO</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="edad">Edad</string>
+    <string name="pasatiempo">Pasatiempo</string>
+    <string name="leer">Leer</string>
+    <string name="bailar">Bailar</string>
+    <string name="programar">Programar</string>
+    <string name="registrar">Registrar</string>
+    <string name="borrar">Borrar</string>
+    <string name="numero">No.</string>
+    <string name="listar">Listar</string>
+    <string name="mensaje">Persona guardada exitosamente</string>
+    <string name="mostrar">Mostrar en Tabla</string>
+    <string-array name="opciones">
+        <item>@string/registrar</item>
+        <item>@string/mostrar</item>
+        <item>@string/listar</item>
+
+    </string-array>
+</resources>
