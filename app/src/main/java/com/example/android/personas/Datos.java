@@ -1,5 +1,9 @@
 package com.example.android.personas;
 
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
 import java.util.ArrayList;
 
 /**
@@ -7,13 +11,43 @@ import java.util.ArrayList;
  */
 
 public class Datos {
-    private static ArrayList<Persona> personas = new ArrayList<>();
 
-    public static  void guardar (Persona p){
-        personas.add(p);
-    }
 
-    public static ArrayList<Persona> getPersonas(){
+    public static ArrayList<Persona> traerPersonas(Context contexto) {
+
+        //Declarar variables
+        SQLiteDatabase db;
+        String sql, nombre, apellido, edad, pasatiempo, foto;
+        ArrayList<Persona> personas=new ArrayList<>();
+
+        //Abrir la base de datos de lectura
+        PersonasSQLiteOpenHelper aux= new PersonasSQLiteOpenHelper(contexto,"DBPersonas",null, 1);
+        db=aux.getReadableDatabase();
+
+        //Cursor
+        sql="Select nombre, apellido, edad, pasatiempo, foto from Personas";
+        Cursor c =db.rawQuery(sql,null);
+
+        //Recorrido del cursor
+        if (c.moveToFirst()){
+            do {
+                nombre=c.getString(0);
+                apellido=c.getString(1);
+                edad=c.getString(2);
+                pasatiempo=c.getString(3);
+                foto=c.getString(4);
+
+                Persona p=new Persona(nombre,apellido,edad,pasatiempo,foto);
+                personas.add(p);
+            }while (c.moveToNext());
+        }
+        //Cerrar conexión
+        db.close();
+
+        //Retornar Personas
         return personas;
+
     }
+
+
 }

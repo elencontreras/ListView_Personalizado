@@ -49,7 +49,7 @@ public class Registro extends AppCompatActivity {
         }
         foto=String.valueOf(fotoAleatoria());
         Persona p=new Persona(nombre,apellido,ed,aux,foto);
-        p.guardar();
+        p.guardar(getApplicationContext());
         new AlertDialog.Builder(this).setMessage(res.getString(R.string.mensaje)).show();
         limpiar();
 
