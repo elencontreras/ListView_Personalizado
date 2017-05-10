@@ -14,6 +14,9 @@
     <string name="listar">Listar</string>
     <string name="mensaje">Persona guardada exitosamente</string>
     <string name="mostrar">Mostrar en Tabla</string>
+    <string name="modificar">Modificar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="buscar">Buscar</string>
     <string-array name="opciones">
         <item>@string/registrar</item>
         <item>@string/mostrar</item>
